@@ -1,0 +1,54 @@
+﻿@model ZJV.DVDCentral.BL.Models.ShoppingCart
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].FormatDescription)
+        </th>
+        <td>
+            @Html.DisplayNameFor(model => model.Items[0].Cost)
+        </td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                <img src="~/images/@item.ImagePath" class="imageprop" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormatDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.ActionLink("Remove From Cart", "Remove", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="2"></td>
+        <td>$@Model.TotalCost</td>
+        <td colspan="2"></td>
+    </tr>
+</table>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Checkout", "Checkout")
+    </div>
+</div>

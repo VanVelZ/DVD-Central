@@ -1,0 +1,83 @@
+﻿@model ZJV.DVDCentral.BL.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="ml-2">
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InStkQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InStkQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            <img src="~/images/@Model.ImagePath" class="imagepropmed"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormatDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormatDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorFullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorFullname)
+        </dd>
+
+    </dl>
+</div>
+<p class="ml-2">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")|
+    @Html.ActionLink("Add to Cart", "Add", "ShoppingCart", new { id = Model.Id }, null)
+</p>

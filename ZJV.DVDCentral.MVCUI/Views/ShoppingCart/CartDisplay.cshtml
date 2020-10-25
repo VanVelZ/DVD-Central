@@ -1,0 +1,16 @@
+﻿@model ZJV.DVDCentral.BL.Models.ShoppingCart
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Count
+        </dt>
+        <dd>
+            @{
+                int count = Model.ShoppingCount;
+                @Html.ActionLink(count.ToString() + " items", "Index");
+                @Html.ActionLink("Checkout", "CheckOut");
+            }
+        </dd>
+    </dl>
+</div>
